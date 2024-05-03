@@ -25,6 +25,9 @@ export class TaskGridComponent{
   @Output() onEditTask: EventEmitter<Task> = new EventEmitter();
 
   deleteTaskFromGrid(task: Task) {
-    this.taskList = this.taskList.filter(t => JSON.stringify(task) !== JSON.stringify(t));
+    const index = this.taskList.indexOf(task);
+    if (index !== -1) {
+      this.taskList.splice(index, 1);
+    }
   }
 }
