@@ -1,29 +1,26 @@
 .task-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     border: 1px solid #ccc;
     border-radius: 0.25rem;
     padding: 1rem;
     margin-bottom: 0.5rem;
+    margin-top: 1rem;
 }
 
-.buttons{
-  display: flex;
-  flex: 1;
-  margin: 10px;
+.task-details {
+    flex: 1; /* Grow to fill available space */
 }
 
-.task-item {
-  flex-direction: row;
-  align-items: center;
+.task-details > * {
+    margin-right: 1rem; /* Adjust spacing between elements */
 }
 
 .task-actions {
-  display: flex;
+    display: flex;
 }
 
-.task-item .task-actions {
-  margin-left: auto; /* Pushes the buttons to the far right */
-}
-
-.task-item .task-actions button {
-  margin-left: 8px; /* Adjust as needed */
+.task-actions button {
+    margin-left: 8px; /* Adjust as needed */
 }
