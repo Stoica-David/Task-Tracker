@@ -1,0 +1,29 @@
+.task-item {
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.buttons{
+  display: flex;
+  flex: 1;
+  margin: 10px;
+}
+
+.task-item {
+  flex-direction: row;
+  align-items: center;
+}
+
+.task-actions {
+  display: flex;
+}
+
+.task-item .task-actions {
+  margin-left: auto; /* Pushes the buttons to the far right */
+}
+
+.task-item .task-actions button {
+  margin-left: 8px; /* Adjust as needed */
+}

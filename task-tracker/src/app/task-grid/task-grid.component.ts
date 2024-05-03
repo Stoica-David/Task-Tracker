@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatCardModule} from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
 import { Task } from '../task';
 import { Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TaskCardComponent } from '../task-card/task-card.component';
+import { Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-task-grid',
@@ -16,6 +18,13 @@ import { TaskCardComponent } from '../task-card/task-card.component';
   styleUrl: './task-grid.component.scss'
 })
 
-export class TaskGridComponent {
+export class TaskGridComponent{
   @Input() taskList: Task[];
+  
+  @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
+  @Output() onEditTask: EventEmitter<Task> = new EventEmitter();
+
+  deleteTaskFromGrid(task: Task) {
+    this.taskList = this.taskList.filter(t => JSON.stringify(task) !== JSON.stringify(t));
+  }
 }
