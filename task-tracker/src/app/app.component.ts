@@ -4,11 +4,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TasksViewComponent } from './tasks-view/tasks-view.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatIconModule, MatButtonModule, MatToolbarModule, TasksViewComponent],
+  imports: [RouterOutlet, MatIconModule, MatButtonModule, MatToolbarModule, TasksViewComponent, RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

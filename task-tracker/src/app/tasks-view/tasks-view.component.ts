@@ -8,11 +8,12 @@ import { Task } from '../task';
 import { Input } from '@angular/core';
 import { Status } from '../../status';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-tasks-view',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule, MatToolbarModule, TaskGridComponent, TaskListComponent, CommonModule],
+  imports: [RouterModule, MatIconModule, MatButtonModule, MatToolbarModule, TaskGridComponent, TaskListComponent, CommonModule],
   templateUrl: './tasks-view.component.html',
   styleUrl: './tasks-view.component.scss'
 })
