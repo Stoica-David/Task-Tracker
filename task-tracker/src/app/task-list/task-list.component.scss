@@ -10,11 +10,11 @@
 }
 
 .task-details {
-    flex: 1; /* Grow to fill available space */
+    flex: 1;
 }
 
 .task-details > * {
-    margin-right: 1rem; /* Adjust spacing between elements */
+    margin-right: 1rem;
 }
 
 .task-actions {
@@ -22,5 +22,5 @@
 }
 
 .task-actions button {
-    margin-left: 8px; /* Adjust as needed */
+    margin-left: 8px;
 }

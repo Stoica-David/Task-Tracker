@@ -4,17 +4,17 @@ import { CommonModule } from '@angular/common';
 import { Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-filter',
   standalone: true,
-  imports: [CommonModule, MatButtonModule],
+  imports: [CommonModule, MatButtonModule, MatTabsModule],
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.scss'
 })
 
 export class FilterComponent  {
-
   statuses = Object.values(Status);
 
   selectStatus(status: Status) {

@@ -1,6 +1,4 @@
-<div class="buttons">
-    <app-filter (statusSelected)="handleStatusSelected($event)"> </app-filter>
-</div>
+<app-filter (statusSelected)="handleStatusSelected($event)"> </app-filter>
 
 <div *ngFor="let task of filteredTasks" class="task-item">
     <div class="task-details">
