@@ -8,11 +8,14 @@ import { Task } from '../task';
 import { Input } from '@angular/core';
 import { Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { TaskService } from '../services/task.service';
+import { EditTaskComponent } from '../edit-task/edit-task.component';
 
 @Component({
   selector: 'app-task-card',
   standalone: true,
-  imports: [MatProgressBarModule, MatButtonModule, MatDividerModule, MatCardModule, MatIconModule],
+  imports: [MatProgressBarModule, MatButtonModule, MatDividerModule, MatCardModule, MatIconModule, EditTaskComponent],
   templateUrl: './task-card.component.html',
   styleUrl: './task-card.component.scss'
 })
@@ -21,13 +24,23 @@ export class TaskCardComponent {
   @Input() task: Task;
   @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
 
-  editTask(task: Task) {
-    console.log('Edit task:', task);
-    // Add your edit task logic here
+  constructor(private taskService: TaskService, private dialog: MatDialog)
+  {
   }
+
+  editTask(task: Task): void {
+    const dialogRef = this.dialog.open(EditTaskComponent, {
+       data: task,
+     });
+ 
+     dialogRef.afterClosed().subscribe((result) => {
+       console.log('The dialog was closed');
+       this.taskService.editTask(task);
+     });
+   }
+ 
 
   deleteTask(task: Task) {
     console.log('Delete task:', task);
-    // Add your delete task logic here
   }
 }
