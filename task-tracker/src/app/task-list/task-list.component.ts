@@ -15,7 +15,6 @@ import { EditTaskComponent } from '../edit-task/edit-task.component';
   selector: 'app-task-list',
   standalone: true,
   imports: [CommonModule, FilterComponent, MatIconModule, MatButtonModule, EditTaskComponent],
-  providers: [TaskService],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss'
 })

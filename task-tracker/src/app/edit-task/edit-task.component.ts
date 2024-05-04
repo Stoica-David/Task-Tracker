@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,7 +20,14 @@ export class EditTaskComponent {
     @Inject(MAT_DIALOG_DATA) public data: Task
   ) {}
 
+  @ViewChild('descriptionArea') descriptionArea: ElementRef;
+  @ViewChild('titleArea') titleArea: ElementRef;
+
+
   save(): void{
+    this.data.title = this.titleArea.nativeElement.value;
+    this.data.description = this.descriptionArea.nativeElement.value; 
+    
     this.dialogRef.close();
   }
 

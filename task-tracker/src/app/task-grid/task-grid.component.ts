@@ -16,7 +16,6 @@ import { isEmpty } from 'rxjs';
   selector: 'app-task-grid',
   standalone: true,
   imports: [MatProgressBarModule, MatButtonModule, MatDividerModule, MatCardModule, CommonModule, TaskCardComponent],
-  providers: [TaskService],
   templateUrl: './task-grid.component.html',
   styleUrl: './task-grid.component.scss'
 })

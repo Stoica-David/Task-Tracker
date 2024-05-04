@@ -13,7 +13,6 @@ import { Status } from '../../status';
   selector: 'app-add-task',
   standalone: true,
   imports: [FormsModule, RouterModule, MatFormFieldModule, MatInputModule, MatButtonModule],
-  providers: [TaskService],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss'
 })
