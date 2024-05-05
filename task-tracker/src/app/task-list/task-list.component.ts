@@ -27,8 +27,9 @@ export class TaskListComponent implements OnInit{
   {}
 
   ngOnInit(): void {
-    this.taskList = this.taskService.getTasks();
-    this.filteredTasks = this.taskList;
+    this.taskService.getTasks().subscribe(tasks => this.taskList = tasks);
+
+    this.taskService.getTasks().subscribe(tasks => this.filteredTasks = tasks);
   }
 
   handleStatusSelected(status) {
@@ -43,16 +44,20 @@ export class TaskListComponent implements OnInit{
  
      dialogRef.afterClosed().subscribe((result) => {
        console.log('The dialog was closed');
-       this.taskService.editTask(task);
+       this.taskService.editTask(task).subscribe(() => {
+        console.log('Task edited successfully:');
+      });
      });
    }
- 
 
   deleteTask(task: Task): void {
     console.log('Delete task:', task);
   
-    this.taskService.deleteTask(task); 
-    this.taskList = this.taskService.getTasks();
+    this.taskService.deleteTask(task).subscribe(() => {
+      console.log('Task deleted successfully:');
+    }); 
+
+    this.taskService.getTasks().subscribe(tasks => this.taskList = tasks);
 
     if(this.currentStatus === Status.ToDo || this.currentStatus === Status.InProgress || this.currentStatus === Status.Done){
       this.filteredTasks = this.taskList.filter((task) => task.status === this.currentStatus);

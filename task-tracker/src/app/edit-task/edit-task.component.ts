@@ -25,7 +25,7 @@ export class EditTaskComponent {
 
 
   save(): void{
-    this.data.title = this.titleArea.nativeElement.value;
+    this.data.name = this.titleArea.nativeElement.value;
     this.data.description = this.descriptionArea.nativeElement.value; 
     
     this.dialogRef.close();

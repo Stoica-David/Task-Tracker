@@ -35,7 +35,9 @@ export class TaskCardComponent {
  
      dialogRef.afterClosed().subscribe((result) => {
        console.log('The dialog was closed: ', result);
-       this.taskService.editTask(task);
+       
+       this.taskService.editTask(task).subscribe(() => {
+        console.log('Task edited successfully');});
      });
    }
  

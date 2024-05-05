@@ -30,17 +30,18 @@ export class AddTaskComponent {
     console.log('Task Name:', this.taskName);
     console.log('Description:', this.taskDescription);
 
-    const task: Task = {
-      id: this.taskService.getId(),
-      title: this.taskName,
+    const newTask: Task = <Task>{
+      name: this.taskName,
       description: this.taskDescription,
       status: Status.ToDo  
     };
 
-    this.taskService.addTask(task);
+    this.taskService.addTask(newTask)
+      .subscribe(task => {
+        console.log('Task added successfully:', task);
+        this.router.navigate(['/']);
+      });
 
-    console.log('Tasks: ', this.taskService.getTasks());
-
-    this.router.navigate(['/']);
+    // console.log('Tasks: ', this.taskService.getTasks());
   }
 }

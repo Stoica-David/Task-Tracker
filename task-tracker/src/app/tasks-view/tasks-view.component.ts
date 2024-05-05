@@ -16,5 +16,5 @@ import { RouterModule } from '@angular/router';
 })
 
 export class TasksViewComponent {
-  isList: boolean = true;
+  isList: boolean = false;
 }
