@@ -31,6 +31,12 @@ export class AddTaskComponent {
   onSubmit() {
     console.log('Task Name:', this.taskName);
     console.log('Description:', this.taskDescription);
+    console.log('AssignedTo:', this.taskAssignment);
+
+    if (!this.taskName || !this.taskDescription || !this.taskAssignment) {
+      console.log('Please fill in all fields.');
+      return;
+    }
 
     const newTask: Task = <Task>{
       name: this.taskName,

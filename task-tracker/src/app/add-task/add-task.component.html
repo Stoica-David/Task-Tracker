@@ -1,14 +1,14 @@
 <form (ngSubmit)="onSubmit()">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Task Name" name="taskName" [(ngModel)]="taskName" required>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Description" name="taskDescription" [(ngModel)]="taskDescription" rows="4" required></textarea>
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Assigned To" name="assignedTo" [(ngModel)]="taskAssignment" required>
-    </mat-form-field>
-  
-    <button type="submit" mat-raised-button>Submit</button>
-    <button mat-raised-button routerLink="/">Cancel</button>
-  </form>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Task Name" name="taskName" [(ngModel)]="taskName" required>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Description" name="taskDescription" [(ngModel)]="taskDescription" rows="4" required></textarea>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Assigned To" name="assignedTo" [(ngModel)]="taskAssignment" required>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button>Submit</button>
+  <button mat-raised-button routerLink="/">Cancel</button>
+</form>
