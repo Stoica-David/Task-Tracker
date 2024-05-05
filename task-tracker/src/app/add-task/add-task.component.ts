@@ -20,10 +20,12 @@ import { Status } from '../../status';
 export class AddTaskComponent {
   taskName: string;
   taskDescription: string;
+  taskAssignment: string
 
   constructor(private router: Router, private taskService: TaskService) {
     this.taskName = '';
     this.taskDescription = '';
+    this.taskAssignment = '';
   }
 
   onSubmit() {
@@ -33,6 +35,7 @@ export class AddTaskComponent {
     const newTask: Task = <Task>{
       name: this.taskName,
       description: this.taskDescription,
+      assignedTo: this.taskAssignment,
       status: Status.ToDo  
     };
 
@@ -41,7 +44,5 @@ export class AddTaskComponent {
         console.log('Task added successfully:', task);
         this.router.navigate(['/']);
       });
-
-    // console.log('Tasks: ', this.taskService.getTasks());
   }
 }

@@ -16,10 +16,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 
 export class FilterComponent  {
   statuses = Object.values(Status);
-
+  @Output() statusSelected: EventEmitter<Status> = new EventEmitter();
+ 
   selectStatus(status: Status) {
     this.statusSelected.emit(status)
   }
-
-  @Output() statusSelected: EventEmitter<Status> = new EventEmitter();
 }

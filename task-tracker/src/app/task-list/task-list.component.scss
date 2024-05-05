@@ -1,4 +1,30 @@
+.task-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.task-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.task-assignment {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.task-status {
+    font-size: 16px;
+    font-weight: bold;
+    color: #673AB7;
+}
+
 .task-item {
+    position: relative; /* Ensure the .task-actions are positioned relative to the task item */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -13,14 +39,14 @@
     flex: 1;
 }
 
-.task-details > * {
-    margin-right: 1rem;
-}
-
 .task-actions {
+    position: absolute; /* Position the actions absolutely */
+    bottom: 0; /* Align to the bottom */
+    right: 0; /* Align to the right */
     display: flex;
 }
 
 .task-actions button {
     margin-left: 8px;
+    margin-bottom: 8px;
 }

@@ -21,15 +21,23 @@ import { EditTaskComponent } from '../edit-task/edit-task.component';
 export class TaskListComponent implements OnInit{
   taskList: Task[];
   filteredTasks: Task[];
-  currentStatus: Status;
+  currentStatus: Status = Status.ToDo;
 
   constructor(private taskService: TaskService, private dialog: MatDialog) 
   {}
 
   ngOnInit(): void {
-    this.taskService.getTasks().subscribe(tasks => this.taskList = tasks);
+    this.taskService.getTasks().subscribe(tasks => {
+      this.taskList = tasks;
+      this.filteredTasks = this.filterTasksByStatus(tasks, this.currentStatus);
+    });
+  }
 
-    this.taskService.getTasks().subscribe(tasks => this.filteredTasks = tasks);
+  private filterTasksByStatus(tasks: Task[], status: Status): Task[] {
+    if (status === null) {
+      return tasks;
+    }
+    return tasks.filter(task => task.status === status);
   }
 
   handleStatusSelected(status) {
